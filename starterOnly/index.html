@@ -57,7 +57,7 @@
               action="index.html"
               method="get"
             >
-              <div class="formData">
+              <div class="formData" data-type="name" data-required="true">
                 <label for="first">Prénom</label><br />
                 <input
                   class="text-control"
@@ -67,7 +67,7 @@
                   minlength="2"
                 /><br />
               </div>
-              <div class="formData">
+              <div class="formData" data-type="name" data-required="true">
                 <label for="last">Nom</label><br />
                 <input
                   class="text-control"
@@ -76,7 +76,7 @@
                   name="last"
                 /><br />
               </div>
-              <div class="formData">
+              <div class="formData" data-type="email" data-required="true">
                 <label for="email">E-mail</label><br />
                 <input
                   class="text-control"
@@ -85,7 +85,7 @@
                   name="email"
                 /><br />
               </div>
-              <div class="formData">
+              <div class="formData" data-type="date" data-required="true">
                 <label for="birthdate">Date de naissance</label><br />
                 <input
                   class="text-control"
@@ -94,7 +94,7 @@
                   name="birthdate"
                 /><br />
               </div>
-              <div class="formData">
+              <div class="formData" data-type="number" data-required="true">
                 <label for="quantity"
                   >À combien de tournois GameOn avez-vous déjà participé
                   ?</label
@@ -111,7 +111,7 @@
               <p class="text-label">
                 A quel tournoi souhaitez-vous participer cette année ?
               </p>
-              <div class="formData">
+              <div class="formData" data-type="radio" data-required="true">
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -179,7 +179,7 @@
                   Portland</label
                 >
               </div>
-              <div class="formData">
+              <div class="formData" data-type="checkbox-single" data-required="true">
                 <input class="checkbox-input" type="checkbox" id="checkbox1" name="terms" />
                 <label class="checkbox2-label" for="checkbox1">
                   <span class="checkbox-icon"></span>
@@ -187,7 +187,7 @@
                 </label>
                 <br />
               </div>
-              <div class="formData">
+              <div class="formData" data-type="checkbox-single" data-required="false">
                 <input class="checkbox-input" type="checkbox" id="checkbox2" name="mail-list" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
