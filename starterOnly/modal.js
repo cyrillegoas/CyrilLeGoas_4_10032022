@@ -6,6 +6,8 @@ function editNav() {
     x.className = 'topnav';
   }
 }
+const closeButton = document.querySelector('.toggle-nav');
+closeButton.addEventListener('click', editNav);
 
 // DOM Elements
 const modalbg = document.querySelector('.bground');
