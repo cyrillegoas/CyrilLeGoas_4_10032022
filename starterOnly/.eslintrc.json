@@ -1,6 +1,9 @@
 {
   "extends": ["airbnb", "airbnb/hooks", "prettier"],
   "plugins": ["prettier"],
+  "env": {
+    "browser": true
+  },
   "rules": {
     "prettier/prettier": [
       "error",
