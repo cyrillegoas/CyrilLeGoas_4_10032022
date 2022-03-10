@@ -35,10 +35,10 @@ img {
   margin: 3.5%;
 }
 .header-logo {
-    float: left;
+  float: left;
 }
 .main-navbar {
-    float: right;
+  float: right;
 }
 .topnav a {
   float: left;
@@ -64,21 +64,25 @@ img {
   border-radius: 15px;
 }
 
-.topnav .icon {
+.topnav .toggle-nav {
   display: none;
 }
 
 @media screen and (max-width: 768px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
+  .topnav a {
+    display: none;
+  }
+  .topnav a.toggle-nav {
     float: right;
     display: block;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
+  .topnav.responsive {
+    position: relative;
+  }
+  .topnav.responsive .toggle-nav {
     position: absolute;
     right: 0;
     top: 0;
@@ -90,16 +94,16 @@ img {
   }
 }
 
-
-
- @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
+@media screen and (max-width: 540px) {
+  .topnav a {
+    display: none;
+  }
+  .topnav a.toggle-nav {
     float: right;
     display: block;
     margin-top: -15px;
   }
-} 
+}
 
 main {
   font-size: 130%;
@@ -111,8 +115,6 @@ main {
   margin: 1px 20px 15px;
   border-radius: 2rem;
   text-align: justify;
-
-
 }
 
 .modal-btn {
@@ -526,4 +528,3 @@ footer {
     opacity: 1;
   }
 }
-
