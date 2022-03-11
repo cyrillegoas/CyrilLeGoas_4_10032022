@@ -28,6 +28,7 @@ function ModalForm(modal) {
     '[data-type="checkboxSingle"] label'
   );
   const radioLabels = modal.querySelectorAll('[data-type="radio"] label');
+  this.tests.checkboxTerms = { errorMessage: 'test' };
 
   // Event Listener
   closeModalButton.addEventListener('click', () => this.closeModal());
@@ -51,37 +52,37 @@ ModalForm.prototype.openModal = function () {
   this.modal.classList.add('open');
 };
 
+ModalForm.prototype.tests = {
+  name: {
+    errorMessage: 'Doit contenir un minimun de 2 charactères',
+    regex: /^([^0-9.,"?!;:#$%&()*+/<>=@[\]^_{}|~ ]){2,}$/,
+  },
+  email: {
+    errorMessage: 'Doit être une addresse email valide',
+    regex:
+      /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
+  },
+  date: {
+    errorMessage: 'Doit être au format jj/mm/aaaa',
+    regex: /^(19[0-9]{2}|2[0-9]{3})-(0[1-9]|1[012])-([123]0|[012][1-9]|31)$/,
+  },
+  number: {
+    errorMessage: 'Doit être un nombre supérieur ou égale 0',
+    regex: /^[0-9]+$/,
+  },
+  radio: {
+    errorMessage: 'Doit être sélectionné',
+  },
+  checkboxTerms: {
+    errorMessage: "Les conditions d'utilisation doivent être acceptées",
+  },
+  checkboxSingle: {
+    errorMessage: 'Doit être sélectionné',
+  },
+};
+
 ModalForm.prototype.validateForm = function (event) {
   const inputWrappers = Array.from(this.modal.querySelectorAll('.formData'));
-  // TODO: test need to move to its own prototype, user can then overwrite values due to prototype lookup
-  const tests = {
-    name: {
-      errorMessage: 'Doit contenir un minimun de 2 charactères',
-      regex: /^([^0-9.,"?!;:#$%&()*+/<>=@[\]^_{}|~ ]){3,}$/,
-    },
-    email: {
-      errorMessage: 'Doit être une addresse email valide',
-      regex:
-        /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
-    },
-    date: {
-      errorMessage: 'Doit être au format jj/mm/aaaa',
-      regex: /^(19[0-9]{2}|2[0-9]{3})-(0[1-9]|1[012])-([123]0|[012][1-9]|31)$/,
-    },
-    number: {
-      errorMessage: 'Doit être un nombre supérieur ou égale 0',
-      regex: /^[0-9]+$/,
-    },
-    radio: {
-      errorMessage: 'Doit être sélectionné',
-    },
-    checkboxTerms: {
-      errorMessage: "Les conditions d'utilisation doivent être acceptées",
-    },
-    checkboxSingle: {
-      errorMessage: 'Doit être sélectionné',
-    },
-  };
 
   const isValid = inputWrappers.reduce((isvalid, inputWrapper) => {
     const testType = inputWrapper.dataset.type;
@@ -97,13 +98,13 @@ ModalForm.prototype.validateForm = function (event) {
         );
         break;
       default:
-        testResults = tests[`${testType}`].regex.test(
+        testResults = this.tests[`${testType}`].regex.test(
           inputWrapper.querySelector('input').value
         );
         break;
     }
     if (!testResults) {
-      inputWrapper.dataset.error = tests[`${testType}`].errorMessage;
+      inputWrapper.dataset.error = this.tests[`${testType}`].errorMessage;
       inputWrapper.dataset.errorVisible = 'true';
     }
     return isvalid && testResults;
