@@ -20,11 +20,26 @@ function ModalForm(modal) {
   this.modal = modal;
   const closeModalButton = modal.querySelector('.close');
   const validationButton = modal.querySelector('.btn-submit');
+  const inputs = modal.querySelectorAll('.formData input');
+  const checkboxTermsLabels = modal.querySelectorAll(
+    '[data-type="checkboxTerms"] label'
+  );
+  const checkboxSingleLabels = modal.querySelectorAll(
+    '[data-type="checkboxSingle"] label'
+  );
+  const radioLabels = modal.querySelectorAll('[data-type="radio"] label');
 
   // Event Listener
   closeModalButton.addEventListener('click', () => this.closeModal());
   validationButton.addEventListener('click', (event) =>
     this.validateForm(event)
+  );
+  inputs.forEach((input) =>
+    input.addEventListener('focus', (event) => this.clearError(event))
+  );
+  [...checkboxTermsLabels, ...checkboxSingleLabels, ...radioLabels].forEach(
+    (label) =>
+      label.addEventListener('click', (event) => this.clearError(event))
   );
 }
 
@@ -101,6 +116,11 @@ ModalForm.prototype.validateForm = function (event) {
     return isvalid && testResults;
   }, true);
   if (!isValid) event.preventDefault();
+};
+
+ModalForm.prototype.clearError = function (event) {
+  event.currentTarget.parentElement.removeAttribute('data-error');
+  event.currentTarget.parentElement.removeAttribute('data-error-visible');
 };
 
 const modal = new ModalForm(document.querySelector('.modal'));
