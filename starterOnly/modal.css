@@ -328,7 +328,8 @@ input[data-error]::after {
   transform: rotate(-45deg);
 }
 .btn-submit,
-.btn-signup {
+.btn-signup,
+.btn-close-success {
   background: #fe142f;
   display: block;
   margin: 0 auto;
@@ -339,6 +340,38 @@ input[data-error]::after {
   cursor: pointer;
   border: 0;
 }
+
+.btn-close-success {
+  padding: 12px 94.5px;
+  position: absolute;
+  bottom: 15px;
+}
+
+.modal-body.hidden {
+  display: none;
+}
+
+.success-body {
+  display: none;
+  padding: 15px 8%;
+  margin: 15px auto;
+  height: 755.733px;
+  position: relative;
+  place-items: center center;
+}
+
+.success-body span {
+  color: #fff;
+  font-size: 36px;
+  text-align: center;
+  font-weight: normal;
+  display: block;
+}
+
+.modal-body.hidden + .success-body {
+  display: grid;
+}
+
 /* custom select styles */
 .custom-select {
   position: relative;

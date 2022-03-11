@@ -31,6 +31,7 @@ function ModalForm(modal) {
 
   // Event Listener
   closeModalButton.addEventListener('click', () => this.closeModal());
+  // should be submit an form.addwventlistener
   validationButton.addEventListener('click', (event) =>
     this.validateForm(event)
   );
@@ -49,6 +50,19 @@ ModalForm.prototype.closeModal = function () {
 
 ModalForm.prototype.openModal = function () {
   this.modal.classList.add('open');
+};
+
+ModalForm.prototype.successMessage = function () {
+  const modalBody = this.modal.querySelector('.modal-body');
+  modalBody.classList.add('hidden');
+  this.modal.querySelector('.btn-close-success').addEventListener(
+    'click',
+    () => {
+      this.closeModal();
+      modalBody.classList.remove('hidden');
+    },
+    { once: true }
+  );
 };
 
 ModalForm.prototype.tests = {
@@ -82,7 +96,7 @@ ModalForm.prototype.tests = {
 
 ModalForm.prototype.validateForm = function (event) {
   const inputWrappers = Array.from(this.modal.querySelectorAll('.formData'));
-
+  event.preventDefault();
   const isValid = inputWrappers.reduce((isvalid, inputWrapper) => {
     const testType = inputWrapper.dataset.type;
     const formInput = inputWrapper.querySelector('input');
@@ -115,7 +129,9 @@ ModalForm.prototype.validateForm = function (event) {
     return isvalid && testResults;
   }, true);
 
-  if (!isValid) event.preventDefault();
+  if (isValid) {
+    this.successMessage();
+  }
 };
 
 ModalForm.prototype.clearError = function (event) {
