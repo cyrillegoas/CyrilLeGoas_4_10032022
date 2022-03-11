@@ -53,62 +53,55 @@ ModalForm.prototype.openModal = function () {
 
 ModalForm.prototype.validateForm = function (event) {
   const inputWrappers = Array.from(this.modal.querySelectorAll('.formData'));
+  // TODO: test need to move to its own prototype, user can then overwrite values due to prototype lookup
   const tests = {
     name: {
       errorMessage: 'Doit contenir un minimun de 2 charactères',
-      inputValidator(inputWrapper) {
-        const regex = /^([^0-9.,"?!;:#$%&()*+/<>=@[\]^_{}|~ ]){3,}$/g;
-        return regex.test(inputWrapper.querySelector('input').value);
-      },
+      regex: /^([^0-9.,"?!;:#$%&()*+/<>=@[\]^_{}|~ ]){3,}$/,
     },
     email: {
       errorMessage: 'Doit être une addresse email valide',
-      inputValidator(inputWrapper) {
-        const regex =
-          /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
-        return regex.test(inputWrapper.querySelector('input').value);
-      },
+      regex:
+        /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
     },
     date: {
       errorMessage: 'Doit être au format jj/mm/aaaa',
-      inputValidator(inputWrapper) {
-        const regex =
-          /^(19[0-9]{2}|2[0-9]{3})-(0[1-9]|1[012])-([123]0|[012][1-9]|31)$/g;
-        return regex.test(inputWrapper.querySelector('input').value);
-      },
+      regex: /^(19[0-9]{2}|2[0-9]{3})-(0[1-9]|1[012])-([123]0|[012][1-9]|31)$/,
     },
     number: {
       errorMessage: 'Doit être un nombre supérieur ou égale 0',
-      inputValidator(inputWrapper) {
-        const regex = /^[0-9]+$/g;
-        return regex.test(inputWrapper.querySelector('input').value);
-      },
+      regex: /^[0-9]+$/,
     },
     radio: {
       errorMessage: 'Doit être sélectionné',
-      inputValidator(inputWrapper) {
-        return Array.from(inputWrapper.querySelectorAll('input')).some(
-          (input) => input.checked
-        );
-      },
     },
     checkboxTerms: {
       errorMessage: "Les conditions d'utilisation doivent être acceptées",
-      inputValidator(inputWrapper) {
-        return inputWrapper.querySelector('input').checked;
-      },
     },
     checkboxSingle: {
       errorMessage: 'Doit être sélectionné',
-      inputValidator(inputWrapper) {
-        return inputWrapper.querySelector('input').checked;
-      },
     },
   };
 
   const isValid = inputWrappers.reduce((isvalid, inputWrapper) => {
     const testType = inputWrapper.dataset.type;
-    const testResults = tests[`${testType}`].inputValidator(inputWrapper);
+    let testResults;
+    switch (testType) {
+      case 'checkboxSingle': // fall through
+      case 'checkboxTerms':
+        testResults = inputWrapper.querySelector('input').checked;
+        break;
+      case 'radio':
+        testResults = Array.from(inputWrapper.querySelectorAll('input')).some(
+          (input) => input.checked
+        );
+        break;
+      default:
+        testResults = tests[`${testType}`].regex.test(
+          inputWrapper.querySelector('input').value
+        );
+        break;
+    }
     if (!testResults) {
       inputWrapper.dataset.error = tests[`${testType}`].errorMessage;
       inputWrapper.dataset.errorVisible = 'true';
