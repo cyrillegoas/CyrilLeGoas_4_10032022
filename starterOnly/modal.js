@@ -94,6 +94,10 @@ ModalForm.prototype.validateForm = function (event) {
   const isValid = inputWrappers.reduce((isvalid, inputWrapper) => {
     const testType = inputWrapper.dataset.type;
     const testResults = tests[`${testType}`].inputValidator(inputWrapper);
+    if (!testResults) {
+      inputWrapper.dataset.error = tests[`${testType}`].errorMessage;
+      inputWrapper.dataset.errorVisible = 'true';
+    }
     return isvalid && testResults;
   }, true);
   if (!isValid) event.preventDefault();
