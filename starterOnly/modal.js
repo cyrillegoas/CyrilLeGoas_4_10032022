@@ -28,7 +28,6 @@ function ModalForm(modal) {
     '[data-type="checkboxSingle"] label'
   );
   const radioLabels = modal.querySelectorAll('[data-type="radio"] label');
-  this.tests.checkboxTerms = { errorMessage: 'test' };
 
   // Event Listener
   closeModalButton.addEventListener('click', () => this.closeModal());
@@ -86,21 +85,27 @@ ModalForm.prototype.validateForm = function (event) {
 
   const isValid = inputWrappers.reduce((isvalid, inputWrapper) => {
     const testType = inputWrapper.dataset.type;
+    const formInput = inputWrapper.querySelector('input');
     let testResults;
     switch (testType) {
       case 'checkboxSingle': // fall through
       case 'checkboxTerms':
-        testResults = inputWrapper.querySelector('input').checked;
+        testResults = formInput.checked;
+        testResults =
+          testResults || (!testResults && !inputWrapper.dataset.required);
         break;
       case 'radio':
         testResults = Array.from(inputWrapper.querySelectorAll('input')).some(
           (input) => input.checked
         );
+        testResults =
+          testResults || (!testResults && !inputWrapper.dataset.required);
         break;
       default:
-        testResults = this.tests[`${testType}`].regex.test(
-          inputWrapper.querySelector('input').value
-        );
+        testResults = this.tests[`${testType}`].regex.test(formInput.value);
+        testResults =
+          testResults ||
+          (!formInput.value.length && !inputWrapper.dataset.required);
         break;
     }
     if (!testResults) {
@@ -109,6 +114,7 @@ ModalForm.prototype.validateForm = function (event) {
     }
     return isvalid && testResults;
   }, true);
+
   if (!isValid) event.preventDefault();
 };
 
