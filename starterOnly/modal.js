@@ -1,16 +1,10 @@
 const modalBtn = document.querySelectorAll('.modal-btn');
 
 // Toggle nav menu
-function editNav() {
-  const x = document.getElementById('myTopnav');
-  if (x.className === 'topnav') {
-    x.className += ' responsive';
-  } else {
-    x.className = 'topnav';
-  }
-}
 const closeNavButton = document.querySelector('.toggle-nav');
-closeNavButton.addEventListener('click', editNav);
+closeNavButton.addEventListener('click', () => {
+  document.getElementById('myTopnav').classList.toggle('responsive');
+});
 
 // Modal
 function ModalForm(modal) {
