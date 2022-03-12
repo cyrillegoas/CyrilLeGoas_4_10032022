@@ -357,7 +357,7 @@ input[data-error]::after {
   display: none;
   padding: 15px 8%;
   margin: 15px auto;
-  height: 755.733px;
+  height: 766px;
   position: relative;
   place-items: center center;
 }

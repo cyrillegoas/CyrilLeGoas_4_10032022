@@ -54,6 +54,8 @@ ModalForm.prototype.openModal = function () {
 
 ModalForm.prototype.successMessage = function () {
   const modalBody = this.modal.querySelector('.modal-body');
+  const modalBodyHeight = modalBody.clientHeight;
+  modalBody.nextElementSibling.style.height = `${modalBodyHeight}px`;
   modalBody.classList.add('hidden');
   this.modal.querySelector('.btn-close-success').addEventListener(
     'click',
