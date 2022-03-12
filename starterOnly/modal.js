@@ -18,8 +18,8 @@ function ModalForm(modal) {
     throw new Error('No modal found!');
   }
   this.modal = modal;
+  const form = modal.querySelector('form');
   const closeModalButton = modal.querySelector('.close');
-  const validationButton = modal.querySelector('.btn-submit');
   const inputs = modal.querySelectorAll('.formData input');
   const checkboxTermsLabels = modal.querySelectorAll(
     '[data-type="checkboxTerms"] label'
@@ -31,10 +31,7 @@ function ModalForm(modal) {
 
   // Event Listener
   closeModalButton.addEventListener('click', () => this.closeModal());
-  // should be submit an form.addwventlistener
-  validationButton.addEventListener('click', (event) =>
-    this.validateForm(event)
-  );
+  form.addEventListener('submit', (event) => this.validateForm(event));
   inputs.forEach((input) =>
     input.addEventListener('focus', (event) => this.clearError(event))
   );
