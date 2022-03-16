@@ -512,13 +512,15 @@ input[data-error]::after {
 }
 /* FIN HERO */
 
+/* FOOTER */
 .copyrights {
   color: var(--red);
   padding: 0;
-  font-size: 1rem;
-  margin: 60px 0 30px;
-  font-weight: bolder;
+  font-size: 1.5rem;
+  font-weight: 500;
 }
+/* FIN FOOTER */
+
 .hero-section > .btn-signup {
   display: none;
 }
