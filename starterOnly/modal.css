@@ -36,6 +36,7 @@ img {
 .topnav {
   overflow: hidden;
   padding: 5.29rem 10rem 8.4rem;
+  margin-right: -4.6rem;
 }
 .header-logo {
   float: left;
