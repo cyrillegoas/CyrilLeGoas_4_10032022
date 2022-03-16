@@ -4,6 +4,7 @@
   --modal-duration: 0.8s;
 
   --red: #fe142f;
+  font-size: 10px;
 }
 * {
   box-sizing: border-box;
@@ -19,7 +20,7 @@ body {
   background-image: url("background.png");
   font-family: var(--font-default);
   font-size: 18px;
-  max-width: 1300px;
+  max-width: 1440px;
   margin: 0 auto;
 }
 
@@ -34,7 +35,7 @@ img {
 
 .topnav {
   overflow: hidden;
-  margin: 3.5%;
+  padding: 5.29rem 10rem 8.4rem;
 }
 .header-logo {
   float: left;
@@ -113,10 +114,7 @@ main {
   font-size: 130%;
   font-weight: bolder;
   color: black;
-  padding-top: 0.5vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
-  margin: 1px 20px 15px;
+  padding: 0 10rem;
   border-radius: 2rem;
   text-align: justify;
 }
@@ -137,14 +135,11 @@ main {
   background: #3876ac;
 }
 
-.footer {
-  margin: 20px;
-  padding: 10px;
-  font-family: var(--font-slab);
+footer {
+  padding: 10rem 4rem 6.3rem;
 }
 
 /* Modal form */
-
 .button {
   background: var(--red);
   margin-top: 0.5em;
@@ -517,11 +512,7 @@ input[data-error]::after {
 .hero-section > .btn-signup {
   display: none;
 }
-footer {
-  padding-left: 2vw;
-  padding-right: 2vw;
-  margin: 0 20px;
-}
+
 @media screen and (max-width: 800px) {
   .hero-section {
     display: block;
