@@ -58,12 +58,14 @@ img {
   background-color: var(--red);
   color: #ffffff;
   border-radius: 15px;
+  text-decoration: underline;
 }
 
 .topnav a.active {
   background-color: var(--red);
   color: #ffffff;
   border-radius: 15px;
+  text-decoration: underline;
 }
 
 .topnav .toggle-nav {
