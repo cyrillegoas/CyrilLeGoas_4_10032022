@@ -100,7 +100,6 @@ p {
 
   .topnav a.toggle-nav {
     display: block;
-    align-self: flex-end;
   }
 
   .topnav.responsive a {
@@ -111,8 +110,9 @@ p {
     background-color: #fff;
     flex-direction: column;
     position: absolute;
-    top: 0;
+    top: 50px;
     right: 0;
+    z-index: 1;
   }
 }
 /* 
@@ -489,7 +489,7 @@ input[data-error]::after {
 
 .hero-content > * {
   position: relative;
-  z-index: 1;
+  /* z-index: 1; */
 }
 .hero-headline {
   font-size: 9.6rem;
