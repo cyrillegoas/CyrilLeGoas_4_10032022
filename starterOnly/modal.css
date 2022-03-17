@@ -29,76 +29,93 @@ p {
   padding: 0.5vw;
 }
 
-img {
-  padding-right: 1rem;
-}
+/* NAV */
 
 .topnav {
-  overflow: hidden;
-  padding: 5.29rem 10rem 8.4rem;
-  margin-right: -4.6rem;
-}
-.header-logo {
-  float: left;
-}
-.main-navbar {
-  float: right;
-}
-.topnav a {
-  float: left;
-  display: block;
-  color: #000000;
-  text-align: center;
-  padding: 12px 12px;
-  margin: 5px;
-  text-decoration: none;
-  font-size: 20px;
-  font-family: Roboto, sans-serif;
+  /* padding: 5.29rem 10rem 8.4rem;
+  margin-right: -4.6rem; */
+  margin: 5.29rem 5.4rem 8.4rem 10rem;
+  display: flex;
+  align-items: center;
 }
 
+.topnav img {
+  width: 277px;
+  display: block;
+}
+.topnav i {
+  display: block;
+  font-size: 2.4rem;
+  color: #ff001b;
+}
+
+.header-logo {
+  margin-right: auto;
+}
+.main-navbar {
+  display: flex;
+}
+
+.topnav a {
+  display: block;
+  color: #000000;
+  padding: 9px 12px;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 500;
+  font-family: var(--font-default);
+}
+
+.topnav a.toggle-nav.active,
+.topnav a.toggle-nav:hover {
+  text-decoration: none;
+}
+
+.topnav a.active,
 .topnav a:hover {
   background-color: var(--red);
   color: #ffffff;
-  border-radius: 15px;
+  border-radius: 8px;
   text-decoration: underline;
 }
 
-.topnav a.active {
-  background-color: var(--red);
+.topnav a.active i,
+.topnav a:hover i {
   color: #ffffff;
-  border-radius: 15px;
-  text-decoration: underline;
 }
 
 .topnav .toggle-nav {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1280px) {
+  .topnav {
+    margin-right: 10rem;
+    position: relative;
+  }
+
   .topnav a {
     display: none;
   }
-  .topnav a.toggle-nav {
-    float: right;
-    display: block;
-  }
-}
 
-@media screen and (max-width: 768px) {
-  .topnav.responsive {
-    position: relative;
-  }
-  .topnav.responsive .toggle-nav {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
+  .topnav a.toggle-nav {
     display: block;
-    text-align: left;
+    align-self: flex-end;
+  }
+
+  .topnav.responsive a {
+    display: block;
+  }
+  .topnav.responsive .main-navbar {
+    border-radius: 8px;
+    background-color: #fff;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 }
+/* 
 
 @media screen and (max-width: 540px) {
   .topnav a {
@@ -108,8 +125,9 @@ img {
     float: right;
     display: block;
     margin-top: -15px;
-  }
-}
+  } 
+}*/
+/* FIN NAV */
 
 main {
   font-size: 130%;
