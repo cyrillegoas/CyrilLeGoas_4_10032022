@@ -19,10 +19,10 @@
       <div class="header-logo">
         <img alt="logo" src="Logo.png" />
       </div>
-      <a class="toggle-nav"">
-          <i class="fa fa-bars"></i>
+      <a class="toggle-nav">
+        <i class="fa fa-bars"></i>
       </a>
-      <div class="main-navbar">  
+      <div class="main-navbar">
         <a href="#" class="active"><span>Accueil</span></a>
         <a href="#"><span>Détails de l'évènement</span></a>
         <a href="#"><span>À propos</span></a>
@@ -52,11 +52,7 @@
         <div class="content">
           <span class="close"></span>
           <div class="modal-body">
-            <form
-              name="reserve"
-              action="index.html"
-              method="get"
-            >
+            <form name="reserve" action="index.html" method="get">
               <div class="formData" data-type="name" data-required="true">
                 <label for="first">Prénom</label><br />
                 <input
@@ -179,8 +175,17 @@
                   Portland</label
                 >
               </div>
-              <div class="formData" data-type="checkboxTerms" data-required="true">
-                <input class="checkbox-input" type="checkbox" id="checkbox1" name="terms" />
+              <div
+                class="formData"
+                data-type="checkboxTerms"
+                data-required="true"
+              >
+                <input
+                  class="checkbox-input"
+                  type="checkbox"
+                  id="checkbox1"
+                  name="terms"
+                />
                 <label class="checkbox2-label" for="checkbox1">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
@@ -188,7 +193,12 @@
                 <br />
               </div>
               <div class="formData" data-type="checkboxSingle">
-                <input class="checkbox-input" type="checkbox" id="checkbox2" name="mail-list" />
+                <input
+                  class="checkbox-input"
+                  type="checkbox"
+                  id="checkbox2"
+                  name="mail-list"
+                />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
                   Je souhaite être prévenu des prochains évènements.
@@ -204,7 +214,10 @@
             </form>
           </div>
           <div class="success-body">
-            <span>Merci pour<br /> votre inscription</span>
+            <span
+              >Merci pour<br />
+              votre inscription</span
+            >
             <button class="button btn-close-success">Fermer</button>
           </div>
         </div>
