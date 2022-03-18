@@ -24,6 +24,9 @@ function ModalForm(modal) {
   const radioLabels = modal.querySelectorAll('[data-type="radio"] label');
 
   // Event Listener
+  modal.addEventListener('click', (event) => {
+    if (event.currentTarget === event.target) this.closeModal();
+  });
   closeModalButton.addEventListener('click', () => this.closeModal());
   form.addEventListener('submit', (event) => this.validateForm(event));
   inputs.forEach((input) =>
