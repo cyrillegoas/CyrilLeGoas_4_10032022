@@ -363,7 +363,7 @@ input {
   display: block;
   margin: 0 auto;
   border-radius: 7px;
-  font-size: 1rem;
+  font-size: 1.4rem;
   padding: 12px 82px;
   color: #fff;
   cursor: pointer;
@@ -377,7 +377,7 @@ input {
 .btn-close-success {
   padding: 12px 94.5px;
   position: absolute;
-  bottom: 15px;
+  bottom: 1.719rem;
 }
 
 .modal-body.hidden {
@@ -385,10 +385,8 @@ input {
 }
 
 .success-body {
+  padding: 4.92rem 3.884rem 1.719rem;
   display: none;
-  padding: 15px 8%;
-  margin: 15px auto;
-  height: 766px;
   position: relative;
   place-items: center center;
 }
@@ -483,7 +481,8 @@ input {
   .modal {
     background-color: transparent;
   }
-  .modal-body {
+  .modal-body,
+  .success-body {
     padding: 3.8rem 3rem 2.1rem;
   }
   form {
@@ -497,6 +496,9 @@ input {
   }
   .text-control {
     height: 5rem;
+  }
+  .btn-close-success {
+    bottom: 2.1rem;
   }
 }
 
