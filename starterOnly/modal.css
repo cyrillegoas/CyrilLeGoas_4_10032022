@@ -135,6 +135,8 @@ main {
   text-align: justify;
 }
 
+/* MODAL */
+
 .modal-btn {
   font-size: 145%;
   background: var(--red);
@@ -151,7 +153,6 @@ main {
   background: #3876ac;
 }
 
-/* Modal form */
 .button {
   background: var(--red);
   margin-top: 0.5em;
@@ -193,47 +194,58 @@ main {
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
   background: #232323;
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
   position: relative;
   color: #fff;
-  padding-top: 10px;
+  box-shadow: 0px 12px 12px rgba(0, 0, 0, 0.25);
 }
 
 .modal-body {
-  padding: 15px 8%;
-  margin: 15px auto;
+  padding: 4.92rem 3.884rem 1.719rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.165rem;
 }
 
 label {
   font-family: var(--font-default);
-  font-size: 17px;
+  font-size: 1.4rem;
+  line-height: 1;
   font-weight: normal;
-  display: inline-block;
-  margin-bottom: 11px;
+  display: block;
+  margin-bottom: 1.7rem;
 }
 input {
   padding: 8px;
   border: 0.8px solid #ccc;
   outline: none;
 }
+.location-checkbox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.77rem 2.4rem;
+}
+
 .text-control {
   margin: 0;
   padding: 8px;
   width: 100%;
   border-radius: 8px;
   font-size: 20px;
-  height: 48px;
+  height: 6.473rem;
 }
 .formData[data-error]::after {
   content: attr(data-error);
-  font-size: 0.4em;
+  font-size: 1rem;
   color: #e54858;
   display: block;
-  margin-top: 7px;
-  margin-bottom: 7px;
-  text-align: left;
-  line-height: 0.3;
+  margin-top: 0.475rem;
+  margin-bottom: -0.69rem;
+  line-height: 1.426;
   opacity: 0;
   transition: 0.3s;
 }
@@ -243,76 +255,80 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-/* 
-input[data-error]::after {
-    content: attr(data-error);
-    font-size: 0.4em;
-    color: red;
-} */
+
+.checkbox-input {
+  display: none;
+}
+
+[data-type="checkboxTerms"] {
+  margin-top: 0.777rem;
+}
+
 .checkbox-label,
 .checkbox2-label {
   position: relative;
-  margin-left: 36px;
   font-size: 12px;
   font-weight: normal;
+  display: flex;
+  align-items: center;
+  gap: 0.663rem;
+  margin-bottom: 0;
 }
 .checkbox-label .checkbox-icon,
 .checkbox2-label .checkbox-icon {
   display: block;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #279e7a;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #fff;
   border-radius: 50%;
-  text-indent: 29px;
   white-space: nowrap;
-  position: absolute;
-  left: -30px;
-  top: -1px;
   transition: 0.3s;
+  position: relative;
 }
-.checkbox-label .checkbox-icon::after,
-.checkbox2-label .checkbox-icon::after {
+.checkbox-label .checkbox-icon::after {
   content: "";
-  width: 13px;
-  height: 13px;
+  width: 17px;
+  height: 17px;
   background-color: #279e7a;
   border-radius: 50%;
-  text-indent: 29px;
   white-space: nowrap;
   position: absolute;
-  left: 50%;
   top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   transition: 0.3s;
   opacity: 0;
 }
-.checkbox-input {
-  display: none;
-}
-.checkbox-input:checked + .checkbox-label .checkbox-icon::after,
-.checkbox-input:checked + .checkbox2-label .checkbox-icon::after {
-  opacity: 1;
+.checkbox-input:checked + .checkbox-label .checkbox-icon {
+  border-color: #279e7a;
 }
 .checkbox-input:checked + .checkbox2-label .checkbox-icon {
   background: #279e7a;
 }
+
+.checkbox-input:checked + .checkbox-label .checkbox-icon::after,
+.checkbox-input:checked + .checkbox2-label .checkbox-icon::after {
+  opacity: 1;
+}
+
 .checkbox2-label .checkbox-icon {
-  border-radius: 4px;
+  border-radius: 6px;
   border: 0;
   background: #c4c4c4;
 }
 .checkbox2-label .checkbox-icon::after {
-  width: 7px;
-  height: 4px;
-  border-radius: 2px;
-  background: transparent;
-  border: 2px solid transparent;
-  border-bottom-color: #fff;
-  border-left-color: #fff;
-  transform: rotate(-55deg);
-  left: 21%;
-  top: 19%;
+  content: "✓";
+  color: transparent;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
 }
+.checkbox-input:checked + .checkbox2-label .checkbox-icon::after {
+  color: #fff;
+}
+
 .close {
   position: absolute;
   right: 15px;
@@ -352,6 +368,10 @@ input[data-error]::after {
   color: #fff;
   cursor: pointer;
   border: 0;
+}
+
+.btn-submit {
+  margin-top: 0.77rem;
 }
 
 .btn-close-success {
@@ -454,8 +474,39 @@ input[data-error]::after {
 /* custom select end */
 .text-label {
   font-weight: normal;
-  font-size: 16px;
+  font-size: 1.4rem;
+  line-height: 1;
+  padding: 0;
 }
+
+@media screen and (max-width: 500px) {
+  .modal {
+    background-color: transparent;
+  }
+  .modal-body {
+    padding: 3.8rem 3rem 2.1rem;
+  }
+  form {
+    gap: 1rem;
+  }
+  .formData[data-error]::after {
+    margin-bottom: -0.525rem;
+  }
+  label {
+    margin-bottom: 1rem;
+  }
+  .text-control {
+    height: 5rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .content {
+    margin: 7.9rem auto 0;
+  }
+}
+
+/* FIN MODAL */
 
 /* HERO SECTION */
 .hero-section {

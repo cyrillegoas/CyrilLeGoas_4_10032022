@@ -54,47 +54,42 @@
           <div class="modal-body">
             <form name="reserve" action="index.html" method="get">
               <div class="formData" data-type="name" data-required="true">
-                <label for="first">Prénom</label><br />
+                <label for="first">Prénom</label>
                 <input
                   class="text-control"
                   type="text"
                   id="first"
                   name="first"
                   minlength="2"
-                /><br />
+                />
               </div>
               <div class="formData" data-type="name" data-required="true">
-                <label for="last">Nom</label><br />
-                <input
-                  class="text-control"
-                  type="text"
-                  id="last"
-                  name="last"
-                /><br />
+                <label for="last">Nom</label>
+                <input class="text-control" type="text" id="last" name="last" />
               </div>
               <div class="formData" data-type="email" data-required="true">
-                <label for="email">E-mail</label><br />
+                <label for="email">E-mail</label>
                 <input
                   class="text-control"
                   type="email"
                   id="email"
                   name="email"
-                /><br />
+                />
               </div>
               <div class="formData" data-type="date" data-required="true">
-                <label for="birthdate">Date de naissance</label><br />
+                <label for="birthdate">Date de naissance</label>
                 <input
                   class="text-control"
                   type="date"
                   id="birthdate"
                   name="birthdate"
-                /><br />
+                />
               </div>
               <div class="formData" data-type="number" data-required="true">
                 <label for="quantity"
                   >À combien de tournois GameOn avez-vous déjà participé
                   ?</label
-                ><br />
+                >
                 <input
                   type="number"
                   class="text-control"
@@ -107,7 +102,11 @@
               <p class="text-label">
                 A quel tournoi souhaitez-vous participer cette année ?
               </p>
-              <div class="formData" data-type="radio" data-required="true">
+              <div
+                class="formData location-checkbox"
+                data-type="radio"
+                data-required="true"
+              >
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -190,7 +189,6 @@
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
-                <br />
               </div>
               <div class="formData" data-type="checkboxSingle">
                 <input
@@ -203,7 +201,6 @@
                   <span class="checkbox-icon"></span>
                   Je souhaite être prévenu des prochains évènements.
                 </label>
-                <br />
               </div>
               <input
                 class="button btn-submit"
