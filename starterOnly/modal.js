@@ -40,6 +40,7 @@ function ModalForm(modal) {
 
 ModalForm.prototype.closeModal = function () {
   this.modal.classList.remove('open');
+  this.modal.querySelector('.modal-body').classList.remove('hidden');
 };
 
 ModalForm.prototype.openModal = function () {
