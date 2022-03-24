@@ -600,6 +600,7 @@ input {
     font-size: 4rem;
     font-weight: 500;
     line-height: 1.325;
+    white-space: normal;
   }
 
   .hero-text {
