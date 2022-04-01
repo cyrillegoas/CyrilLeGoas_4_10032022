@@ -22,6 +22,7 @@ body {
   font-size: 18px;
   max-width: 1440px;
   margin: 0 auto;
+  background-color: #fff;
 }
 
 p {
@@ -53,17 +54,21 @@ p {
 }
 .main-navbar {
   display: flex;
+  gap: 1.5rem;
 }
 
 .topnav a {
   display: block;
   color: #000000;
   padding: 9px 12px;
-  margin-right: -12px;
   text-decoration: none;
   font-size: 1.8rem;
   font-weight: 500;
   font-family: var(--font-default);
+}
+
+.topnav a.toggle-nav {
+  margin-right: -12px;
 }
 
 .topnav a.toggle-nav.active,
@@ -114,6 +119,7 @@ p {
     right: 0;
     z-index: 1;
     border: 1px solid black;
+    gap: 0.5rem;
   }
 }
 
